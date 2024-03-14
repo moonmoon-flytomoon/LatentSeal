@@ -1,0 +1,67 @@
+# Config for training
+lr_wmdecoder: 2.5e-4
+lr_decoder: 2.5e-4
+lr_decay_scale: 4.0e-3
+optimizer: AdamW
+max_epochs: 1
+warmup_steps_ratio: 0.005
+resume: False
+batch_size: 1
+num_gpus: 1
+accumulate_grad_batches: False #2 False False
+
+# LOSS_FUNCTION dsad tgsdg ert dsad 
+bce_loss_ratio: 0.
+mse_loss_ratio: 1.0
+pixcel_loss_ratio: 0.
+wm_loss_ratio: 1.0
+perceptual_loss_ratio: 0.0025 #0.005 0.00002
+loss_perceptual: "lpips"  #watson-vgg lpips watson-dft
+
+# VAE_MODEL wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+ddconfig:
+  #attn_type: "vanilla-xformers"
+  double_z: true
+  z_channels: 4
+  resolution: 256
+  in_channels: 3
+  out_ch: 3
+  ch: 128
+  ch_mult:
+  - 1
+  - 2
+  - 4
+  - 4
+  num_res_blocks: 2
+  attn_resolutions: []
+  dropout: 0.0
+
+# Extract_WaterMark_MODEL
+watermark_decoder:
+  watermark_size:
+    - 256
+    - 256
+  wm_channels: 3
+  in_channels: 27
+  out_ch: 3
+  model_name: 'efficientnet_b0_gn'
+  decoder_filters: [16, 24, 40, 112, 320]
+  gn_groups: 8
+  pretrained: False
+
+# Dataset
+sd_image_size:
+- 768
+- 768
+- 3
+aug:
+  p_hflip: 0.5
+  p_vflip: 0.5
+  p_Rotate: 0.5
+  p_Crop: 0.
+  p_blur: 1.0
+  p_noise: 1.0
+  p_JPEG: 1.0
+  p_colorjitter: 0.5
+  p_Sharpness: 0.5
+  p_Dropout: 1.0

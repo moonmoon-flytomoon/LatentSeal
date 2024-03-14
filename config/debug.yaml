@@ -1,0 +1,7 @@
+#lr_backbone: 1.6e-3
+#lr_head: 1.6e-2
+lr_decay_scale: 1.0e-2
+batch_size: 8
+pretrained: true
+warmup_steps_ratio: 0.1
+optimizer: AdamW
