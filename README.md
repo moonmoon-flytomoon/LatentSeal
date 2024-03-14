@@ -44,14 +44,7 @@ Install the remaining dependencies with pip:
 pip install -r requirements.txt
 ```
 
+## Get Started
+- Run `python src/train.py` for training.
 
-
-
-
-
-
-
-[//]: # (## News)
-
-[//]: # (**2024.03.14 Update:**  )
-
+- Run `python Test/test.py` for testing.
