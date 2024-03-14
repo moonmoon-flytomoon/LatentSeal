@@ -1000,42 +1000,6 @@ class combine_wm(nn.Module):
                 m.weight.data.fill_(1)
                 m.bias.data.zero_()
 
-# class combine_wm(nn.Module):
-#     def __init__(self, in_channels, out_channels, watermark_embedding_len=384,kernel_size=3,gn_group=32):
-#         super(combine_wm, self).__init__()
-#         self.pre = nn.Sequential(
-#             nn.Conv2d(in_channels=watermark_embedding_len, out_channels=in_channels, kernel_size=kernel_size, padding=1),
-#             nn.GroupNorm(num_groups=gn_group, num_channels=in_channels),
-#             nn.SiLU(inplace=True),
-#             nn.Conv2d(in_channels=in_channels, out_channels=in_channels,
-#                       kernel_size=kernel_size, padding=1),
-#             nn.GroupNorm(num_groups=gn_group, num_channels=in_channels),
-#             nn.SiLU(inplace=True),
-#             nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, padding=1),
-#             nn.GroupNorm(num_groups=gn_group, num_channels=out_channels),
-#             nn.SiLU(inplace=True),
-#             nn.Conv2d(in_channels=out_channels, out_channels=out_channels, kernel_size=kernel_size, padding=1),
-#             nn.GroupNorm(num_groups=gn_group, num_channels=out_channels),
-#             nn.SiLU(inplace=True),
-#         )
-#         self._initialize_weights()
-#     def forward(self, x,wm):
-#         wm = self.pre(wm)
-#         wm = wm.repeat(1, 1, 3, 3)
-#         return x
-#
-#     def _initialize_weights(self):
-#         for m in self.modules():
-#             if isinstance(m, nn.Conv2d) or isinstance(m, nn.ConvTranspose2d) or isinstance(m, nn.Linear):
-#                 m.weight.data = nn.init.kaiming_normal_(m.weight.data)
-#                 if m.bias is not None:
-#                     m.bias.data.zero_()
-#             elif isinstance(m, nn.BatchNorm2d):
-#                 m.weight.data.fill_(1)
-#                 m.bias.data.zero_()
-#             elif isinstance(m, nn.GroupNorm):
-#                 m.weight.data.fill_(1)
-#                 m.bias.data.zero_()
 
 class WaterMarkResnetBlock(nn.Module):
     def __init__(self, *, in_channels, out_channels=None, conv_shortcut=False,
@@ -1125,92 +1089,6 @@ class WaterMarkResnetBlock(nn.Module):
 
 
 
-# class WaterMarkResnetBlock(nn.Module):
-#     def __init__(self, *, in_channels, out_channels=None, conv_shortcut=False,
-#                  dropout, temb_channels=512,watermark=False,wm_channels=16,gn_group=8):
-#         super().__init__()
-#         self.in_channels = in_channels
-#         out_channels = in_channels if out_channels is None else out_channels
-#         self.out_channels = out_channels
-#         self.use_conv_shortcut = conv_shortcut
-#         self.watermark = watermark
-#         if self.watermark ==True:
-#             self.combine_wm = combine_wm(in_channels=in_channels,out_channels=in_channels,watermark_embedding_len=wm_channels,gn_group=gn_group)
-#             self.zero_conv_1 = zero_module(torch.nn.Conv2d(in_channels, in_channels, 1))
-#             # self.dropout_watermark = torch.nn.Dropout(0)
-#             # self.conv_watermark = torch.nn.Conv2d(in_channels,
-#             #                                       out_channels,
-#             #                                       kernel_size=3,
-#             #                                       stride=1,
-#             #                                       padding=1)
-#             # self.zero_conv_2 = zero_module(torch.nn.Conv2d(in_channels, in_channels, 1))
-#
-#
-#         self.norm1 = Normalize(in_channels)
-#         self.conv1 = torch.nn.Conv2d(in_channels,
-#                                      out_channels,
-#                                      kernel_size=3,
-#                                      stride=1,
-#                                      padding=1)
-#         if temb_channels > 0:
-#             self.temb_proj = torch.nn.Linear(temb_channels,
-#                                              out_channels)
-#         self.norm2 = Normalize(out_channels)
-#         self.dropout = torch.nn.Dropout(dropout)
-#         self.conv2 = torch.nn.Conv2d(out_channels,
-#                                      out_channels,
-#                                      kernel_size=3,
-#                                      stride=1,
-#                                      padding=1)
-#         if self.in_channels != self.out_channels:
-#             if self.use_conv_shortcut:
-#                 self.conv_shortcut = torch.nn.Conv2d(in_channels,
-#                                                      out_channels,
-#                                                      kernel_size=3,
-#                                                      stride=1,
-#                                                      padding=1)
-#             else:
-#                 self.nin_shortcut = torch.nn.Conv2d(in_channels,
-#                                                     out_channels,
-#                                                     kernel_size=1,
-#                                                     stride=1,
-#                                                     padding=0)
-#
-#     def forward(self, x, temb,wm_x=None):
-#         h = x
-#         h = self.norm1(h)
-#         h = nonlinearity(h)
-#
-#         if self.watermark == True:
-#             # w = self.zero_conv_1(wm_x)
-#             # w = self.dropout_watermark(w)
-#             w = self.combine_wm(h,wm_x)
-#             w = self.zero_conv_1(w)
-#             h = h+w
-#             # w = self.conv_watermark(w)
-#             # w = self.zero_conv_2(w)
-#
-#         h = self.conv1(h)
-#
-#         # if self.watermark == True:
-#         #     h = h+w
-#
-#         if temb is not None:
-#             h = h + self.temb_proj(nonlinearity(temb))[:,:,None,None]
-#
-#         h = self.norm2(h)
-#         h = nonlinearity(h)
-#         h = self.dropout(h)
-#         h = self.conv2(h)
-#
-#         if self.in_channels != self.out_channels:
-#             if self.use_conv_shortcut:
-#
-#                 x = self.conv_shortcut(x)
-#             else:
-#                 x = self.nin_shortcut(x)
-#
-#         return x+h
 
 class WaterMarkDecoder(nn.Module):
     def __init__(self, *, ch, out_ch, ch_mult=(1,2,4,8), num_res_blocks,
