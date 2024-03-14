@@ -3,7 +3,7 @@ This repo is the official code for
 * **The Latent Seal: Robust Watermarking for Latent Diffusion Model**
 
 ## Current Version
-* Test demo release: 2024.03.14
+* Test Demo release: 2024.03.14
 * Model release: 2024.03.14
 * Latent Seal Dataset release: 2024.03.14
 * Training code will be released when this paper is accepted.
