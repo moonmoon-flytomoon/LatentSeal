@@ -1,1 +1,57 @@
-# LatentSeal
+# The Latent Seal: Robust Watermarking for Latent Diffusion Model
+This repo is the official code for
+* **The Latent Seal: Robust Watermarking for Latent Diffusion Model**
+
+## Current Version
+* Test demo release: 2024.03.14
+* Model release: 2024.03.14
+* Latent Seal Dataset release: 2024.03.14
+* Training code will be released when this paper is accepted.
+
+
+### Test Demo
+- Here we provide a [Test Demo](https://drive.google.com/drive/folders/1l3XBFYPMaNFdvCWyOHfB2qIPkpjIxZgE?usp=sharing) deployed on kaggle.
+
+### Dataset
+- In this paper, we introduce the Latent Seal Dataset (LCD).
+The dataset is publically available at [[HuggingFace]](https://huggingface.co/datasets/moonmoon-Flytomoon/LSD).
+
+### Model
+- Latent Seal (MPU version) traning log  is publically available at [[WandB]](https://api.wandb.ai/links/moonmoon-flytomoon/bvi297g2).
+- Latent Seal (MPU version) model weight  is publically available at [[kaggle]](https://api.wandb.ai/links/moonmoon-flytomoon/bvi297g2).
+
+## Requirements
+This codebase has been developed with python version 3.10, PyTorch version 2.1.0, CUDA 12.1.
+
+First, clone the repository locally and move inside the folder:
+```cmd
+git clone https://github.com/moonmoon-flytomoon/LatentSeal
+cd LatentSeal
+```
+Next, create a new virtual environment with anaconda:
+```cmd
+conda create -n LatentSeal python=3.10
+conda activate LatentSeal
+```
+
+Next, install [PyTorch](https://pytorch.org/):
+```cmd
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+```
+
+Install the remaining dependencies with pip:
+```cmd
+pip install -r requirements.txt
+```
+
+
+
+
+
+
+
+
+[//]: # (## News)
+
+[//]: # (**2024.03.14 Update:**  )
+
