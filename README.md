@@ -10,7 +10,7 @@ This repo is the official code for
 
 
 ### Test Demo
-- Here we provide a [Test Demo]([https://drive.google.com/drive/folders/1l3XBFYPMaNFdvCWyOHfB2qIPkpjIxZgE?usp=sharing](https://www.kaggle.com/code/moonmoonflytomoon/latentseal-testdemo)) deployed on Kaggle.
+- Here we provide a [[Test Demo]](https://drive.google.com/drive/folders/1l3XBFYPMaNFdvCWyOHfB2qIPkpjIxZgE?usp=sharing](https://www.kaggle.com/code/moonmoonflytomoon/latentseal-testdemo) deployed on Kaggle.
 
 ### Dataset
 - In this paper, we introduce the Latent Seal Dataset (LCD).
