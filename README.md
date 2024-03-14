@@ -15,7 +15,7 @@ This repo is the official code for
 - Latent Seal traning log  is publically available at [[WandB]](https://api.wandb.ai/links/moonmoon-flytomoon/bvi297g2).
 - Latent Seal model weight  is publically available at [[Kaggle]](https://www.kaggle.com/datasets/moonmoonflytomoon/latentseal-model).
 ### Dataset
-- In this paper, we introduce the Latent Seal Dataset (LCD).
+- In this paper, we introduce the Latent Seal Dataset.
 The dataset is publically available at [[HuggingFace]](https://huggingface.co/datasets/moonmoon-Flytomoon/LSD).
 
 ## Requirements
