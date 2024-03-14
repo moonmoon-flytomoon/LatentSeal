@@ -11,14 +11,12 @@ This repo is the official code for
 
 ### Test Demo
 - Here we provide a [Test Demo](https://www.kaggle.com/code/moonmoonflytomoon/latentseal-testdemo) deployed on Kaggle.
-
-### Dataset
-- In this paper, we introduce the Latent Seal Dataset (LCD).
-The dataset is publically available at [[HuggingFace]](https://huggingface.co/datasets/moonmoon-Flytomoon/LSD).
-
 ### Model
 - Latent Seal traning log  is publically available at [[WandB]](https://api.wandb.ai/links/moonmoon-flytomoon/bvi297g2).
 - Latent Seal model weight  is publically available at [[Kaggle]](https://www.kaggle.com/datasets/moonmoonflytomoon/latentseal-model).
+### Dataset
+- In this paper, we introduce the Latent Seal Dataset (LCD).
+The dataset is publically available at [[HuggingFace]](https://huggingface.co/datasets/moonmoon-Flytomoon/LSD).
 
 ## Requirements
 This codebase has been developed with python version 3.10, PyTorch version 2.1.0, CUDA 12.1.
