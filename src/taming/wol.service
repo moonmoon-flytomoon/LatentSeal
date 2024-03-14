@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable Wake On Lan
+
+[Service]
+Type=oneshot
+ExecStart = /usr/sbin/ethtool --change enp4s0 wol g
+
+[Install]
+WantedBy=basic.target
+
