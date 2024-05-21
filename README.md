@@ -10,7 +10,7 @@ This repo is the official code for
 
 
 ### Test Demo
-- Here we provide a [Test Demo](https://www.kaggle.com/code/moonmoonflytomoon/latentseal-testdemo) deployed on Kaggle.
+- Here we provide a [Test Demo]([https://www.kaggle.com/code/moonmoonflytomoon/latentseal-testdemo](https://www.kaggle.com/code/moonmoonflytomoon/notebook?scriptVersionId=166947269)) deployed on Kaggle.
 ### Model
 - Latent Seal traning log  is publically available at [[WandB]](https://api.wandb.ai/links/moonmoon-flytomoon/bvi297g2).
 - Latent Seal model weight  is publically available at [[Kaggle]](https://www.kaggle.com/datasets/moonmoonflytomoon/latentseal-model).
